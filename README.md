@@ -14,6 +14,7 @@ pages légales). Inspiré, pour la structure, du site flamand algemenevoorwaarde
 | Accueil global (choix du pays) | `index.html` |
 | Section Belgique | `belgique/index.html`, `belgique/conditions-generales.html` + `belgique/conditions-generales/` (webshop, entrepreneurs, freelances, indépendants), `belgique/contrats.html`, `belgique/secteurs.html` + `belgique/secteurs/` (construction et six métiers, horeca, immobilier, freelances), `belgique/connaissances.html` + `belgique/connaissances/` (11 articles) |
 | Sections France, Luxembourg, Suisse | `france/`, `luxembourg/`, `suisse/` : même organisation (accueil national, conditions générales, webshop, contrats, secteurs, base de connaissances), en droit national |
+| Catalogue, projets et ressources communes | `documents.html` (nos documents), `projets.html` + `projets/` (vente en ligne, logiciel ou application, agence et services, indépendant), `honoraires.html`, `faq.html`, `lexique.html` |
 | Analyse gratuite (formulaire) | `analyse-gratuite.html` → `merci.html` |
 | Contact (formulaire) | `contact.html` → `merci.html` |
 | À propos | `a-propos.html` |
@@ -65,6 +66,11 @@ sur la page `mentions-legales.html` (classe `a-completer`) ou signalés ici :
     du Code de commerce) et 10,40 % au Luxembourg (loi modifiée du 18 avril 2004), ainsi que les taux belges
     de la loi du 2 août 2002. Pour retrouver les pages concernées : `grep -rl "12,40" france/`,
     `grep -rl "10,40" luxembourg/`. En Suisse, le taux légal de 5 % (art. 104 CO) est fixe.
+
+13. **Rôles affichés** : Me Werner-Édouard de Saeger est présenté comme l'avocat qui rédige et conseille ; Florence de Saeger,
+    qui n'est pas avocate, comme contact pour le suivi des demandes (carte de contact, À propos, contact, analyse gratuite,
+    mentions légales et protection des données). Si elle n'est ni salariée ni collaboratrice du cabinet, prévoir un
+    engagement écrit de confidentialité et, au besoin, un contrat de sous-traitance au sens de l'article 28 du RGPD.
 
 ## Fonctionnement des formulaires
 

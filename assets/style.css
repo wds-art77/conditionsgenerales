@@ -84,7 +84,7 @@ th { color: var(--encre); background: var(--fond-2); }
 .btn[disabled], .btn:disabled { opacity: .6; cursor: not-allowed; }
 .actions { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; margin: 1.25rem 0 0; }
 .lien-fleche { font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--accent-clair); padding-bottom: .1rem; }
-.lien-fleche::after { content: " →"; }
+.lien-fleche::after { content: "\00A0→"; }
 .lien-fleche:hover { border-bottom-color: var(--accent); }
 
 /* ---------- En-tête ---------- */
@@ -110,14 +110,15 @@ header.site .inner { display: flex; align-items: center; justify-content: space-
 .burger .fermer { display: none; }
 .burger[aria-expanded="true"] .ouvrir { display: none; }
 .burger[aria-expanded="true"] .fermer { display: block; }
-@media (max-width: 1299px) {
+@media (max-width: 1399px) {
   .tel .libelle { display: none; }
 }
 @media (max-width: 1000px) {
   .nav-principale ul { gap: .9rem; }
   .nav-principale nav a { font-size: .9rem; }
 }
-@media (max-width: 860px) {
+/* Menu repliable jusqu'à 1100 px : le menu complet (sept entrées, téléphone, bouton) ne tient pas en dessous */
+@media (max-width: 1100px) {
   .burger { display: inline-flex; }
   .nav-principale { display: none; position: absolute; left: 0; right: 0; top: 100%; background: #fff; border-bottom: 1px solid var(--bord); box-shadow: var(--ombre); padding: .75rem var(--gouttiere) 1.25rem; flex-direction: column; align-items: stretch; gap: 1rem; }
   .nav-principale.ouvert { display: flex; }
@@ -185,6 +186,8 @@ main { display: block; }
 .personne .role { color: var(--gris); font-size: .92rem; }
 .carte-contact h2, .carte-contact h3 { font-size: 1.35rem; margin-bottom: .5rem; }
 .carte-contact p { color: var(--gris); }
+.carte-contact .suivi { font-size: .92rem; margin: -.35rem 0 1.1rem; }
+.carte-contact .suivi strong { color: var(--encre); font-weight: 700; }
 .carte-contact .actions { flex-direction: column; align-items: stretch; }
 .carte-contact .actions .btn { width: 100%; }
 
@@ -360,12 +363,12 @@ textarea { min-height: 150px; resize: vertical; }
 @media (max-width: 900px) { .disposition-formulaire { grid-template-columns: 1fr; } }
 /* Colonne « Ce que vous recevez » : compacte et collante sur grand écran, pour accompagner le formulaire */
 @media (min-width: 901px) {
-  .disposition-formulaire > aside .grille { gap: .9rem; }
-  .disposition-formulaire > aside .grille .carte { display: grid; grid-template-columns: 40px minmax(0, 1fr); column-gap: 1rem; padding: 1.1rem 1.25rem; }
-  .disposition-formulaire > aside .grille .carte-icone { width: 40px; height: 40px; margin: 0; grid-row: span 2; }
-  .disposition-formulaire > aside .grille .carte > :not(.carte-icone) { grid-column: 2; }
-  .disposition-formulaire > aside .grille .carte h3 { margin-bottom: .3rem; }
-  .disposition-formulaire > aside .grille .carte p { font-size: .95rem; }
+  .disposition-formulaire > aside .grille, .colonne-recevez .grille { gap: .9rem; }
+  .disposition-formulaire > aside .grille .carte, .colonne-recevez .grille .carte { display: grid; grid-template-columns: 40px minmax(0, 1fr); column-gap: 1rem; padding: 1.1rem 1.25rem; }
+  .disposition-formulaire > aside .grille .carte-icone, .colonne-recevez .grille .carte-icone { width: 40px; height: 40px; margin: 0; grid-row: span 2; }
+  .disposition-formulaire > aside .grille .carte > :not(.carte-icone), .colonne-recevez .grille .carte > :not(.carte-icone) { grid-column: 2; }
+  .disposition-formulaire > aside .grille .carte h3, .colonne-recevez .grille .carte h3 { margin-bottom: .3rem; }
+  .disposition-formulaire > aside .grille .carte p, .colonne-recevez .grille .carte p { font-size: .95rem; }
 }
 @media (min-width: 901px) and (min-height: 820px) { .disposition-formulaire > aside { position: sticky; top: 96px; } }
 .coordonnees { list-style: none; padding: 0; margin: 0 0 1.5rem; }
@@ -450,7 +453,7 @@ footer.site .accroche { color: #c5d0dc; max-width: 34ch; }
 
 /* Téléphone à côté du menu sur mobile */
 .tel-mobile { display: none; }
-@media (max-width: 860px) {
+@media (max-width: 1100px) {
   .tel-mobile { display: inline-flex; margin-left: auto; margin-right: .6rem; }
   header.site .inner { justify-content: flex-start; }
   .nav-principale .tel { display: none; }
@@ -470,7 +473,9 @@ footer.site .accroche { color: #c5d0dc; max-width: 34ch; }
 
 /* Pied de page : cabinet + quatre pays */
 .pied-colonnes { grid-template-columns: 1.6fr repeat(4, 1fr); }
-.pied-liens-cabinet { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: .25rem 1rem; }
+/* Liens du cabinet : bloc titré et séparé des coordonnées, en deux colonnes régulières */
+.pied-bloc-cabinet { margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,.12); }
+.pied-liens-cabinet { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .45rem 1.25rem; max-width: 26rem; }
 .pied-liens-cabinet li { margin: 0; }
 footer.site .pied-cabinet .logo { margin-bottom: .5rem; }
 footer.site .petit { color: #a9b7c6; }
@@ -487,3 +492,71 @@ footer.site .petit { color: #a9b7c6; }
 .carte-pays h2, .carte-pays h3 { margin: 0; color: var(--encre); }
 .carte-pays p { margin: 0; color: var(--gris); font-size: .95rem; }
 .carte-pays .lien-fleche { margin-top: auto; align-self: flex-start; }
+
+/* ---------- Corrections visuelles (octobre 2026) ---------- */
+/* Liens fléchés des cartes : flèche jamais seule à la ligne, soulignement à la longueur du texte */
+.carte .lien-fleche { text-wrap: balance; border-bottom: 0; text-decoration: underline; text-decoration-color: var(--accent-clair); text-decoration-thickness: 2px; text-underline-offset: .3em; }
+.carte .lien-fleche:hover, a.carte:hover .lien-fleche { text-decoration-color: var(--accent); }
+
+/* Carte de contact : bloc « Votre avocat » compact, suivi des demandes détaché du titre qui suit */
+.carte-contact .personne p { margin: 0; }
+.carte-contact .personne .surtitre { margin-bottom: .15rem; }
+.carte-contact .personne .role { margin-top: .2rem; }
+.carte-contact .suivi { margin: 0 0 1.25rem; padding: .6rem .8rem; background: var(--fond-2); border-radius: 10px; font-size: .88rem; }
+.carte-contact .suivi strong { white-space: nowrap; }
+.lateral .carte-contact .suivi strong { display: inline-block; }
+@media (max-width: 480px) {
+  .carte-contact { padding: 1.25rem; }
+  .carte-contact .personne { gap: .75rem; }
+  .carte-contact .avatar { width: 52px; height: 52px; font-size: 1.1rem; }
+}
+
+/* Colonne courte mise en valeur à côté d'un texte long (pages « Votre projet ») */
+.colonne-encadree { background: var(--carte); border: 1px solid var(--bord); border-radius: var(--rayon); padding: 1.5rem; }
+.colonne-encadree .liste-coches { margin-bottom: 0; }
+.deux-colonnes h4 { margin: 1.4rem 0 .4rem; color: var(--encre-2); }
+.deux-colonnes > div > h3 + h4 { margin-top: .6rem; }
+/* Premier encadré d'une colonne : aligné en haut sur la colonne voisine */
+.deux-colonnes > div > .encadre:first-child { margin-top: 0; }
+
+/* Lexique : index alphabétique, lettres repérables, ancres sous l'en-tête collant */
+.sommaire.abecedaire ul { list-style: none; padding: 0; margin: .5rem 0 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+.sommaire.abecedaire li { margin: 0; }
+.sommaire.abecedaire a { display: inline-flex; align-items: center; justify-content: center; min-width: 2.5rem; height: 2.5rem; border: 1px solid var(--bord); border-radius: 10px; font-weight: 700; color: var(--accent); background: #fff; text-decoration: none; }
+.sommaire.abecedaire a:hover, .sommaire.abecedaire a:focus-visible { background: var(--accent); color: #fff; border-color: var(--accent); text-decoration: none; }
+.sommaire.abecedaire .lien-suite { margin: .75rem 0 0; font-size: .9rem; }
+.sommaire.abecedaire .lien-suite a { display: inline; min-width: 0; height: auto; border: 0; background: none; color: var(--accent); font-weight: 600; text-decoration: underline; }
+.sommaire.abecedaire .lien-suite a:hover, .sommaire.abecedaire .lien-suite a:focus-visible { background: none; color: var(--accent-2); }
+.article h2[id^="lettre-"] { font-size: 2rem; color: var(--accent); margin-top: 3rem; padding-bottom: .5rem; border-bottom: 2px solid var(--accent-clair); }
+.article h2[id^="lettre-"] + h3 { margin-top: 1.1rem; }
+.article [id] { scroll-margin-top: 96px; }
+.retour-lettres { font-size: .85rem; text-align: right; margin: .5rem 0 0; }
+.retour-lettres a { text-decoration: none; }
+.retour-lettres a:hover { text-decoration: underline; }
+/* Colonne latérale conservée sur mobile (sous l'article) quand elle ne répète rien de la page */
+@media (max-width: 960px) { .lateral.garder-mobile { display: grid; margin-top: 2rem; } }
+
+/* FAQ : rubriques en pastilles plutôt qu'en liste numérotée */
+.sommaire.rubriques ol { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .5rem; }
+.sommaire.rubriques li { margin: 0; }
+.sommaire.rubriques a { display: inline-block; padding: .45rem .9rem; border: 1px solid var(--bord); border-radius: 999px; font-weight: 600; }
+.sommaire.rubriques a:hover, .sommaire.rubriques a:focus-visible { border-color: var(--accent); text-decoration: none; }
+
+/* Analyse gratuite : carte de contact sous « Ce que vous recevez », qui accompagne le formulaire */
+.colonne-recevez > .carte-contact { margin-top: 1.5rem; }
+@media (min-width: 901px) {
+  .disposition-formulaire > .colonne-recevez { align-self: stretch; }
+}
+@media (min-width: 901px) and (min-height: 760px) {
+  .colonne-recevez > .carte-contact { position: sticky; top: 96px; }
+}
+/* Contact : carte de contact en tête de la colonne droite */
+.colonne-contact > .carte-contact + h2 { margin-top: 2rem; }
+/* Formulaires sur mobile : moins de marges imbriquées, champs plus larges */
+@media (max-width: 600px) {
+  form.formulaire { padding: 1.1rem; }
+  .formulaire fieldset { padding: .75rem .85rem; }
+}
+
+/* Sous-navigation pays sur mobile : le pays figure déjà dans le premier lien (« Accueil Suisse ») */
+@media (max-width: 600px) { .nav-pays .pays-nom { display: none; } }

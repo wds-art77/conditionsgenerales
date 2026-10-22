@@ -1,4 +1,4 @@
-/* conditionsgenerales.be — menu mobile et petites interactions (aucun cookie, aucun traceur). */
+/* ConditionsGenerales.com — menu mobile et petites interactions (aucun cookie, aucun traceur). */
 (function () {
   "use strict";
   document.documentElement.classList.remove("sans-js");

@@ -1,4 +1,4 @@
-/* conditionsgenerales.be — formulaires « Analyse gratuite » et « Contact ».
+/* ConditionsGenerales.com — formulaires « Analyse gratuite » et « Contact ».
  * Validation côté navigateur, envoi vers le service de formulaires indiqué dans l'attribut action,
  * pièce jointe limitée à 1 Mo (les photos trop lourdes sont réduites dans le navigateur).
  * Tant que l'attribut action contient « REMPLACER », le formulaire ouvre le logiciel de messagerie
@@ -11,7 +11,7 @@
   var bouton = form.querySelector("button[type=submit]");
   var texteBouton = bouton ? bouton.textContent : "Envoyer";
   var erreurEnvoi = document.getElementById("erreur-envoi");
-  var CONTACT = form.getAttribute("data-contact") || "contact@conditionsgenerales.be";
+  var CONTACT = form.getAttribute("data-contact") || "contact@conditionsgenerales.com";
   var PAGE_MERCI = form.getAttribute("data-merci") || "merci.html";
   var obligatoires = (form.getAttribute("data-obligatoires") || "").split(/\s+/).filter(Boolean);
 
@@ -153,7 +153,7 @@
       var v = (el.value || "").trim();
       if (v) lignes.push(el.name + " : " + v);
     });
-    var sujet = form.getAttribute("data-sujet") || "Demande via conditionsgenerales.be";
+    var sujet = form.getAttribute("data-sujet") || "Demande via ConditionsGenerales.com";
     var corps = lignes.join("\n") + (pieceFinale ? "\n\n(Merci de joindre votre document à ce courriel.)" : "");
     window.location.href = "mailto:" + CONTACT + "?subject=" + encodeURIComponent(sujet) + "&body=" + encodeURIComponent(corps);
     bouton.disabled = false;

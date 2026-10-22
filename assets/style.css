@@ -1,4 +1,4 @@
-/* conditionsgenerales.be — feuille de style
+/* ConditionsGenerales.com — feuille de style
    Palette : encre (bleu nuit) pour les titres et le pied de page, vert profond pour les actions,
    fond crème chaud, cartes blanches. Polices système (aucun appel à un service tiers). */
 :root {
@@ -454,6 +454,18 @@ footer.site .accroche { color: #c5d0dc; max-width: 34ch; }
   .tel-mobile { display: inline-flex; margin-left: auto; margin-right: .6rem; }
   header.site .inner { justify-content: flex-start; }
   .nav-principale .tel { display: none; }
+}
+/* Petits téléphones : le logo « ConditionsGenerales.com » se resserre pour laisser la place au téléphone et au menu */
+@media (max-width: 420px) {
+  header.site .inner { gap: .6rem; }
+  header.site .logo { font-size: .95rem; gap: .4rem; }
+  header.site .logo svg { width: 30px; height: 30px; }
+  .tel-mobile { margin-right: .4rem; }
+  .tel-mobile, .burger { flex: none; }
+}
+@media (max-width: 350px) {
+  header.site .logo { font-size: .82rem; }
+  header.site .logo svg { display: none; }
 }
 
 /* Pied de page : cabinet + quatre pays */

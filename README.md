@@ -41,7 +41,7 @@ sur la page `mentions-legales.html` (classe `a-completer`) ou signalés ici :
 4. **Formulaires** (voir ci-dessous) : identifiant du service de formulaires à insérer.
 5. **Biographie** (`a-propos.html`) et **délai de réponse** (« 48 heures ouvrables », présent sur de nombreuses
    pages) : relisez et ajustez ces engagements.
-6. **Photo** : la carte « Votre interlocuteur » affiche les initiales « WS ». Pour une photo, placez
+6. **Photo** : le portrait de l'avocat figure dans la carte « Votre avocat » (`assets/portrait-avatar.jpg`) et en haut de la page À propos (`assets/portrait-cabinet.jpg`). Pour le changer, remplacez ces deux fichiers en gardant leurs proportions (carré et 3:2).
    `assets/portrait.jpg` (carré, 400 × 400 px) et remplacez, dans chaque page,
    `<div class="avatar" aria-hidden="true">WS</div>` par
    `<div class="avatar"><img src="assets/portrait.jpg" alt="" width="68" height="68"></div>`

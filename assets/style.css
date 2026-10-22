@@ -181,6 +181,8 @@ main { display: block; }
 .carte-contact .personne { display: flex; align-items: center; gap: 1rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--bord); margin-bottom: 1.25rem; }
 .avatar { width: 68px; height: 68px; border-radius: 50%; background: var(--encre); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.35rem; letter-spacing: .02em; flex: none; border: 3px solid var(--accent-clair); overflow: hidden; }
 .avatar img { width: 100%; height: 100%; object-fit: cover; }
+.portrait-cabinet { margin: 0; }
+.portrait-cabinet img { display: block; width: 100%; height: auto; border-radius: 16px; box-shadow: var(--ombre); }
 .personne .surtitre { margin: 0 0 .15rem; }
 .personne .nom { font-weight: 800; color: var(--encre); font-size: 1.12rem; line-height: 1.2; }
 .personne .role { color: var(--gris); font-size: .92rem; }

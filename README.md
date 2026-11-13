@@ -30,8 +30,9 @@ Toutes les pages partagent le même en-tête, la même navigation et le même pi
 Les éléments suivants n'ont pas pu être vérifiés ou configurés automatiquement. Ils sont surlignés en jaune
 sur la page `mentions-legales.html` (classe `a-completer`) ou signalés ici :
 
-1. **Mentions légales** (`mentions-legales.html`) : numéro d'entreprise (BCE) et numéro de TVA, barreau(x)
-   d'inscription, adresse du cabinet à Liège, assureur de responsabilité professionnelle.
+1. **Mentions légales** (`mentions-legales.html`) : restent à compléter la forme juridique du cabinet, l'assureur de
+   responsabilité professionnelle et les modalités d'exercice au Luxembourg et en Suisse. Sont renseignés : adresses
+   de Liège et de Paris, numéro d'entreprise et de TVA, SIREN, barreaux de Liège-Huy et de Paris, médiateur.
 2. **Adresse e-mail** : le site affiche `contact@conditionsgenerales.com`. Créez cette boîte chez votre
    fournisseur de messagerie ou remplacez l'adresse dans toutes les pages
    (`grep -rl "contact@conditionsgenerales.com" . | xargs sed -i 's/contact@conditionsgenerales.com/votre@adresse/g'`).
@@ -50,10 +51,10 @@ sur la page `mentions-legales.html` (classe `a-completer`) ou signalés ici :
    fiches juridiques sourcées (législation belge, française, luxembourgeoise et suisse en vigueur), mais ils
    engagent l'avocat qui publie le site : une relecture finale par vos soins reste indispensable, en particulier
    pour les taux, montants et délais, qui changent (intérêts de retard, plafonds de compétence, seuils).
-8. **Déontologie** : faire confirmer par écrit, par les ordres concernés, le titre sous lequel l'activité est
-   exercée à Paris, au Luxembourg et en Suisse, puis compléter la section « Exercice dans les quatre pays » des
-   mentions légales ; documenter la notification au bâtonnier de l'offre de première analyse gratuite
-   (à défaut, retirer cette offre de l'accueil et de `analyse-gratuite.html`).
+8. **Déontologie** : faire confirmer par écrit les modalités d'exercice au Luxembourg et en Suisse, puis compléter les
+   mentions légales ; déclarer le site et ses noms de domaine au conseil de l'Ordre de Paris (RIN, art. 10.5) et lui
+   soumettre la question du nom de domaine générique ; documenter la notification au bâtonnier de l'offre de première
+   analyse gratuite (à défaut, retirer cette offre de l'accueil et de `analyse-gratuite.html`).
 9. **Assurance responsabilité professionnelle** : une fois l'assureur et la couverture géographique confirmés,
    ajouter une section « Assurance responsabilité professionnelle » aux mentions légales (art. III.74, 14°, CDE).
 10. **Protection des données** : signer le contrat de sous-traitance (art. 28 RGPD) avec le service de
